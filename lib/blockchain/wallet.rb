@@ -14,6 +14,15 @@ module BlockchainWallet
       @second_password = second_password
     end
 
+
+    def self.satoshi_to_bitcoins(satoshi)
+      satoshi / (10 ** 8)
+    end
+
+    def self.bitcoins_to_satoshi(bitcoins)
+      satoshi * (10 ** 8)
+    end
+
     def addresses
       url = build_url("list", {:password => @password})
       handle(url) { |answer| answer.addresses }
@@ -24,7 +33,7 @@ module BlockchainWallet
       handle(url) { |answer| answer }
     end
 
-    def new_address(label='')
+    def new_address(label = nil)
       url = build_url("new_address", {:password => @password, :second_password => @second_password, :label => label})
       handle(url) { |answer| answer }
     end
@@ -44,12 +53,17 @@ module BlockchainWallet
       handle(url) { |answer| answer.consolidated }
     end
 
-    def payment(address, amount, from, shared, fee, note)
+    def payment(address, amount, from = nil, shared = nil, fee = nil, note = nil)
       url = build_url("payment", {:password => @password, :second_password => @second_password, :to => address, :amount => bitcoins_to_satoshi(amount),
                                   :from => from, :shared => shared, :fee => fee, :note => note})
       handle(url) { |answer| answer }
     end
 
+    def sendmany(recipients, from = nil, shared = nil, fee = nil, note = nil)
+      url = build_url("sendmany", {:password => @password, :second_password => @second_password, :recipients => recipients,
+                                  :from => from, :shared => shared, :fee => fee, :note => note})
+      handle(url) { |answer| answer }
+    end
 
     attr_reader :guid
 
@@ -70,14 +84,6 @@ module BlockchainWallet
       parse_JSON(json)
     rescue Exception => ex
       raise BlockchainException, ex.message
-    end
-
-    def satoshi_to_bitcoins(satoshi)
-      satoshi / (10 ** 8)
-    end
-
-    def bitcoins_to_satoshi(bitcoins)
-      satoshi * (10 ** 8)
     end
 
     def check_error(answer)
