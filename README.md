@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+First you need to create wallet object with your guid, password and second password:
+
+    wallet = BlockchainWallet::Wallet.new("b14d36af-2fa6-4d76-91b5-ff70b8370ec7", "n$grJ74hAshfggnb6864%j78@#^hChttp://ya.ru@contentpurl", nil)
+
+Then your can call any API method to invoke him. For example:
+
+    wallet.addresses
 
 ## Contributing
 
