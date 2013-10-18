@@ -44,6 +44,13 @@ module BlockchainWallet
       handle(url) { |answer| answer.consolidated }
     end
 
+    def payment(address, amount, from, shared, fee, note)
+      url = build_url("payment", {:password => @password, :second_password => @second_password, :to => address, :amount => bitcoins_to_satoshi(amount),
+                                  :from => from, :shared => shared, :fee => fee, :note => note})
+      handle(url) { |answer| answer }
+    end
+
+
     attr_reader :guid
 
     private
@@ -54,6 +61,7 @@ module BlockchainWallet
     def handle(url)
       answer = execute_request(url)
       check_error(answer)
+      answer['balance'] = satoshi_to_bitcoins(answer['balance']) if answer['balance']
       yield ImmutableStruct.new(*answer.keys.map(&:to_sym)).new(*answer.values)
     end
 
@@ -62,6 +70,14 @@ module BlockchainWallet
       parse_JSON(json)
     rescue Exception => ex
       raise BlockchainException, ex.message
+    end
+
+    def satoshi_to_bitcoins(satoshi)
+      satoshi / (10 ** 8)
+    end
+
+    def bitcoins_to_satoshi(bitcoins)
+      satoshi * (10 ** 8)
     end
 
     def check_error(answer)
