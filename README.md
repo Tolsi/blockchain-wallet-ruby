@@ -1,6 +1,6 @@
-# Blockchain::Wallet
+# BlockchainWallet
 
-TODO: Write a gem description
+Blockchain.info Wallet API for Ruby
 
 ## Installation
 

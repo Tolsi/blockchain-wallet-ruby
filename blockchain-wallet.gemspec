@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = Blockchain::Wallet::VERSION
   spec.authors       = ["Sergey Tolmachev"]
   spec.email         = ["tolsi.ru@gmail.com"]
-  spec.description   = "Blockchain.info Wallet API in Ruby"
+  spec.description   = "Blockchain.info Wallet API for Ruby"
   spec.summary       = %q{TODO: Write a gem summary}
   spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.license       = "CC-BY"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
