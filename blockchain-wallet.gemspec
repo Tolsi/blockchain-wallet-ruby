@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = BlockchainWallet::VERSION
   spec.authors       = ["Sergey Tolmachev"]
   spec.email         = ["tolsi.ru@gmail.com"]
-  spec.description   = "Blockchain.info Wallet API for Ruby"
-  spec.summary       = ""
-  spec.homepage      = ""
+  spec.description   = "Provides access to all blockchain.info Wallet API functions ( https://blockchain.info/api/blockchain_wallet_api )"
+  spec.summary       = "Blockchain.info Wallet API for Ruby"
+  spec.homepage      = "https://github.com/Tolsi/blockchain-wallet-ruby"
   spec.license       = "CC-BY"
 
   spec.files         = `git ls-files`.split($/)
@@ -21,8 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "debase"
-  spec.add_development_dependency "ruby-debug-ide"
 
   spec.add_dependency "immutable_struct"
   spec.add_dependency "oj"
