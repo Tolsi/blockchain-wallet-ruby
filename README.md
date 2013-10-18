@@ -1,6 +1,6 @@
-# BlockchainWallet
+# Blockchain.info Wallet API for Ruby
 
-Blockchain.info Wallet API for Ruby
+Provides access to all blockchain.info Wallet API functions ( https://blockchain.info/api/blockchain_wallet_api )
 
 ## Installation
 
