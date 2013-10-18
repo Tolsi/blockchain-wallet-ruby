@@ -6,7 +6,7 @@ class WebAPI
   end
 
   def build_url(operation_name, params)
-    @url + operation_name + "?" + params.map { |param, value| "#{param}=#{value}" }.join("&")
+    @url + operation_name + "?" + params.map { |param, value| "#{param}=#{value}" if value }.join("&")
   end
 
 
