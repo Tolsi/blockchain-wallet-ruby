@@ -5,11 +5,11 @@ require 'blockchain/wallet/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "blockchain-wallet"
-  spec.version       = Blockchain::Wallet::VERSION
+  spec.version       = BlockchainWallet::VERSION
   spec.authors       = ["Sergey Tolmachev"]
   spec.email         = ["tolsi.ru@gmail.com"]
   spec.description   = "Blockchain.info Wallet API for Ruby"
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.summary       = ""
   spec.homepage      = ""
   spec.license       = "CC-BY"
 
@@ -21,4 +21,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "debase"
+  spec.add_development_dependency "ruby-debug-ide"
+
+  spec.add_dependency "immutable_struct"
+  spec.add_dependency "oj"
 end

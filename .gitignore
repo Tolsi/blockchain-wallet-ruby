@@ -47,3 +47,4 @@ C:\\nppdf32Log\\debuglog.txt
 config/database.yml
 
 Gemfile.lock
+pkg/
