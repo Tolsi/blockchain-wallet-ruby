@@ -5,7 +5,7 @@ require 'blockchain/wallet/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "blockchain-wallet"
-  spec.version       = BlockchainWallet::VERSION
+  spec.version       = Blockchain::VERSION
   spec.authors       = ["Sergey Tolmachev"]
   spec.email         = ["tolsi.ru@gmail.com"]
   spec.description   = "Provides access to all blockchain.info Wallet API functions ( https://blockchain.info/api/blockchain_wallet_api )"

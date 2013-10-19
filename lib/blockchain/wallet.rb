@@ -4,7 +4,7 @@ require "json"
 require "oj"
 require "immutable_struct"
 
-module BlockchainWallet
+module Blockchain
 
   class Wallet < WebAPI
     def initialize(guid, password, second_password)
