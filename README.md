@@ -1,4 +1,4 @@
-# Blockchain.info Wallet API for Ruby
+# Blockchain.info Wallet API for Ruby [![Build Status](https://travis-ci.org/Tolsi/blockchain-wallet-ruby.png?branch=master)](https://travis-ci.org/Tolsi/blockchain-wallet-ruby)
 
 Provides access to all blockchain.info Wallet API functions ( https://blockchain.info/api/blockchain_wallet_api )
 
