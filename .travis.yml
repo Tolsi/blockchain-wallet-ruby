@@ -7,3 +7,7 @@ before_install:
   - gem update --system
   - gem --version
 script: rake spec_all
+notifications:
+  email:
+    on_success: never
+    on_failure: always
