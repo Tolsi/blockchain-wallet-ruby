@@ -54,7 +54,7 @@ module Blockchain
     end
 
     def payment(address, amount, from = nil, shared = nil, fee = nil, note = nil)
-      url = build_url("payment", {:password => @password, :second_password => @second_password, :to => address, :amount => bitcoins_to_satoshi(amount),
+      url = build_url("payment", {:password => @password, :second_password => @second_password, :to => address, :amount => Wallet::bitcoins_to_satoshi(amount),
                                   :from => from, :shared => shared, :fee => fee, :note => note})
       handle(url) { |answer| answer }
     end
@@ -75,7 +75,7 @@ module Blockchain
     def handle(url)
       answer = execute_request(url)
       check_error(answer)
-      answer['balance'] = satoshi_to_bitcoins(answer['balance']) if answer['balance']
+      answer['balance'] = Wallet::satoshi_to_bitcoins(answer['balance']) if answer['balance']
       yield ImmutableStruct.new(*answer.keys.map(&:to_sym)).new(*answer.values)
     end
 
