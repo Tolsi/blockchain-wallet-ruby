@@ -20,7 +20,7 @@ module Blockchain
     end
 
     def self.bitcoins_to_satoshi(bitcoins)
-      satoshi * (10 ** 8)
+      bitcoins * (10 ** 8)
     end
 
     def addresses
